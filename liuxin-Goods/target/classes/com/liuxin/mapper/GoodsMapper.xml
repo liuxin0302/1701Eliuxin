@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 命名空间 早期版本是可选的 现在是必须的 可以是随意的名称 但是最好是全限定名称 -->
+<mapper namespace="com.liuxin.mapper.GoodsMapperDao">
+	<select id="getList" resultType="map">
+		SELECT
+			g.gid,g.gname,g.gEname,b.tname,z.zname,g.chicun,g.price,g.kcl,g.biaoqian
+		FROM
+			0513_goods g
+		LEFT JOIN 0513_brand b ON g.tid = b.tid
+		LEFT JOIN 0513_goodskind z ON g.zid = z.zid
+	</select>
+	<select id="getType" resultType="type">
+	select * from 0513_brand
+	</select>
+	<select id="getZhongLei" resultType="zhongLei">
+	select * from 0513_goodskind
+	</select>
+	<insert id="add" parameterType="goods">
+		insert into 0513_goods (gname,gEname,tid,zid,chicun,price,kcl,biaoqian) values (#{gname},#{gEname},#{tid},#{zid},#{chicun},#{price},#{kcl},#{biaoqian})
+	</insert>
+	<delete id="del" parameterType="int">
+		delete from 0513_goods where gid=#{gid}
+	</delete>
+	<select id="tochakan" resultType="map" parameterType="int">
+		SELECT
+			g.gid,g.gname,g.gEname,b.tname,z.zname,g.chicun,g.price,g.kcl,g.biaoqian
+		FROM
+			0513_goods g
+		LEFT JOIN 0513_brand b ON g.tid = b.tid
+		LEFT JOIN 0513_goodskind z ON g.zid = z.zid
+		where gid=#{gid}
+	</select>
+</mapper>
