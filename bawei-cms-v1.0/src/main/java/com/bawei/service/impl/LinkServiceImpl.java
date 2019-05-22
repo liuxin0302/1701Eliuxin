@@ -44,4 +44,10 @@ public class LinkServiceImpl implements LinkService{
 		return linkDao.update(link);
 	}
 
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return linkDao.delete(id);
+	}
+
 }

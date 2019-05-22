@@ -62,7 +62,6 @@ public class LinkAdminController {
 			resultes=linkService.update(link);
 		}
 		
-		
 		JSONObject result = new JSONObject();
 		if(resultes>0) {
 			initComponet.refreshSystem(ContextLoader.getCurrentWebApplicationContext().getServletContext());
@@ -74,6 +73,18 @@ public class LinkAdminController {
 		return null;
 	}
 	
-	
+	@RequestMapping("/delete")
+	public String delete(@RequestParam(value="ids")String ids,HttpServletRequest request,HttpServletResponse response) throws Exception {
+		String[] moreid = ids.split(",");
+		for (String id : moreid) {
+			linkService.delete(Integer.parseInt(id));
+		}
+		initComponet.refreshSystem(ContextLoader.getCurrentWebApplicationContext().getServletContext());
+		JSONObject result = new JSONObject();
+		result.put("success", true);
+		ResponseUtil.write(response, result);
+		
+		return null;
+	}
 	
 }

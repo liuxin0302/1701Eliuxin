@@ -23,5 +23,5 @@ public interface LinkService {
 	
 	public int add(Link link);
 	public int update(Link link);
-	
+	public int delete(int id);
 }

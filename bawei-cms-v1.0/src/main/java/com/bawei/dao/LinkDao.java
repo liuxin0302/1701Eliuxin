@@ -33,5 +33,5 @@ public interface LinkDao {
 	
 	public int update(Link link);
 	
-	
+	public int delete(int id);
 }
