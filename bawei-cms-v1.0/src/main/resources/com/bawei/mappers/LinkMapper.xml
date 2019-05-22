@@ -19,9 +19,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from t_link
 	</select>
 	
+	<insert id="add" parameterType="Link">
+		insert into t_link values (null,#{name},#{url},#{sortNo})
+	</insert>
 	
-	
-	
+	<update id="update" parameterType="Link">
+	update t_link
+	<set>
+		<if test="name!=null and name!=''">
+			name=#{name},
+		</if>
+		<if test="url!=null and url!=''">
+			url=#{url},
+		</if>
+		<if test="sortNo!=null and sortNo!=''">
+			sortNo=#{sortNo},
+		</if>
+	</set>
+	where id=#{id}
+	</update>
 	
 	
 	

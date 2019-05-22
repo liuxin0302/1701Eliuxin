@@ -20,7 +20,7 @@ import com.bawei.service.ArticleService;
 import com.bawei.service.LinkService;
 
 /**
- * ��ʼ�����
+ * 初始化组件
  * @author user
  *
  */

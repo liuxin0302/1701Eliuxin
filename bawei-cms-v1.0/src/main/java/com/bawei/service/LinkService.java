@@ -21,4 +21,7 @@ public interface LinkService {
 	
 	public Long getToal(Map<String,Object> map);
 	
+	public int add(Link link);
+	public int update(Link link);
+	
 }

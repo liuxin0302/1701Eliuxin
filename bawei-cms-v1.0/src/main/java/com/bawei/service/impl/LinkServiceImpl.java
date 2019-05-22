@@ -32,4 +32,16 @@ public class LinkServiceImpl implements LinkService{
 		return linkDao.getToal(map);
 	}
 
+	@Override
+	public int add(Link link) {
+		// TODO Auto-generated method stub
+		return linkDao.add(link);
+	}
+
+	@Override
+	public int update(Link link) {
+		// TODO Auto-generated method stub
+		return linkDao.update(link);
+	}
+
 }

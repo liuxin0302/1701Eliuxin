@@ -5,15 +5,18 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.ContextLoader;
 
 import com.bawei.entity.Link;
 import com.bawei.entity.PageBean;
 import com.bawei.service.LinkService;
+import com.bawei.service.impl.InitComponet;
 import com.bawei.util.ResponseUtil;
 
 import net.sf.json.JSONArray;
@@ -24,6 +27,10 @@ import net.sf.json.JSONObject;
 public class LinkAdminController {
 	@Resource
 	private LinkService linkService;
+	@Resource
+	private InitComponet initComponet;
+	
+	
 	//友情链接列表方法
 	@RequestMapping("/list")
 	public String list(@RequestParam(value="page",required=false)String page,
@@ -46,7 +53,26 @@ public class LinkAdminController {
 	}
 	
 	
-	
+	@RequestMapping("/save")
+	public String save(Link link,HttpServletRequest request,HttpServletResponse response) throws Exception {
+		int resultes=0;
+		if(link.getId()==null) {
+			resultes=linkService.add(link);
+		}else{
+			resultes=linkService.update(link);
+		}
+		
+		
+		JSONObject result = new JSONObject();
+		if(resultes>0) {
+			initComponet.refreshSystem(ContextLoader.getCurrentWebApplicationContext().getServletContext());
+			result.put("success", true);
+		}else {
+			result.put("success", false);
+		}
+		ResponseUtil.write(response, result);
+		return null;
+	}
 	
 	
 	

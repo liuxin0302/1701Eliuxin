@@ -25,13 +25,13 @@ public interface LinkDao {
 	 */
 	public Long getToal(Map<String,Object> map);
 	/**
-	 * 添加链接
+	 * 添加友情链接
 	 * @param map
 	 * @return
 	 */
 	public int add(Link link);
 	
-	
+	public int update(Link link);
 	
 	
 }
