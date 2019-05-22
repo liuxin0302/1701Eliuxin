@@ -18,4 +18,7 @@ public interface LinkService {
 	 * @return
 	 */
 	public List<Link> list(Map<String,Object> map);
+	
+	public Long getToal(Map<String,Object> map);
+	
 }

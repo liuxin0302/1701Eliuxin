@@ -15,5 +15,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from t_link
 		order by sortNo asc
 	</select>
+	<select id="getToal" parameterType="Map" resultType="Long">
+		select count(*) from t_link
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </mapper> 

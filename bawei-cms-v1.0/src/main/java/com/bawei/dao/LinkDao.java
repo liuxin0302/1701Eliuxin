@@ -18,4 +18,20 @@ public interface LinkDao {
 	 * @return
 	 */
 	public List<Link> list(Map<String,Object> map);
+	/**
+	 *获取友情链接的总数量
+	 * @param map
+	 * @return
+	 */
+	public Long getToal(Map<String,Object> map);
+	/**
+	 * 添加链接
+	 * @param map
+	 * @return
+	 */
+	public int add(Link link);
+	
+	
+	
+	
 }

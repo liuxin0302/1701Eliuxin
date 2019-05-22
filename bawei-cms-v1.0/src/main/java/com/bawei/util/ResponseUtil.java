@@ -5,14 +5,14 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ajax���������������
+ * ajax工具类
  * @author user
  *
  */
 public class ResponseUtil {
 
 	/**
-	 * ҳ�����
+	 * 页面输出方法
 	 * @param response
 	 * @param o
 	 * @throws Exception
